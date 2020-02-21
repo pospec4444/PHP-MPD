@@ -1,9 +1,9 @@
 <?php
-/* 
- * PHP MPD (mpd.class.php) is a single PHP class that gives easy access to 
+/*
+ * PHP MPD (mpd.class.php) is a single PHP class that gives easy access to
  * a MPD (Music Player Daemon) server from any web application.
  * Copyright (C) 2011  Jimmi Kristensen (picbot@gmail.com)
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -105,8 +105,8 @@ class MPD {
 	private $single;
 
 	/**
-	 * Instantiate the MPD object 
-	 * 
+	 * Instantiate the MPD object
+	 *
 	 * @param string $host The hostname or IP address of MPD server
 	 * @param integer $port The port number of the MPD server
 	 * @param string $pwd (Optional) The password of the MPD server
@@ -149,7 +149,7 @@ class MPD {
 
 	/**
 	 * Connects to MPD
-	 * 
+	 *
 	 * @return boolean Returns false if it was unable to connect and true if it connected
 	 */
 	private function connect() {
@@ -174,8 +174,8 @@ class MPD {
 	}
 
 	/**
-	 * Sets consume state to STATE, STATE should be 0 or 1. When consume is activated, each song played is removed from playlist. 
-	 * 
+	 * Sets consume state to STATE, STATE should be 0 or 1. When consume is activated, each song played is removed from playlist.
+	 *
 	 * @param integer $state The consume state
 	 * @return boolean Status of the command
 	 */
@@ -194,7 +194,7 @@ class MPD {
 
 	/**
 	 * Sets crossfading between songs.
-	 * 
+	 *
 	 * @param integer $seconds Crossfade seconds
 	 * @return boolean Status of the command
 	 */
@@ -213,7 +213,7 @@ class MPD {
 
 	/**
 	 * Sets random state to STATE, STATE should be 0 or 1.
-	 * 
+	 *
 	 * @param integer $state 0 = no and 1 = yes
 	 * @return boolean Status of the command
 	 */
@@ -232,7 +232,7 @@ class MPD {
 
 	/**
 	 * Sets repeat state to STATE, STATE should be 0 or 1.
-	 * 
+	 *
 	 * @param integer $state 0 = no and 1 = yes
 	 * @return boolean Status of the command
 	 */
@@ -251,7 +251,7 @@ class MPD {
 
 	/**
 	 * Sets volume to VOL, the range of volume is 0-100.
-	 * 
+	 *
 	 * @param integer $vol The new volume
 	 * @return boolean Status of the command
 	 */
@@ -270,7 +270,7 @@ class MPD {
 
 	/**
 	 * Adjusts the volume up or down depending if the modifier is positive or negative
-	 * 
+	 *
 	 * @param integer $mod Volume modification
 	 * @return boolean Status of the command
 	 */
@@ -288,9 +288,9 @@ class MPD {
 	}
 
 	/**
-	 * Sets single state to STATE, STATE should be 0 or 1. When single is activated, playback 
-	 * is stopped after current song, or song is repeated if the 'repeat' mode is enabled. 
-	 * 
+	 * Sets single state to STATE, STATE should be 0 or 1. When single is activated, playback
+	 * is stopped after current song, or song is repeated if the 'repeat' mode is enabled.
+	 *
 	 * @param integer $state Activate or deactivate single
 	 * @return boolean Status of the command
 	 */
@@ -309,7 +309,7 @@ class MPD {
 
 	/**
 	 * Plays next song in the playlist.
-	 * 
+	 *
 	 * @return boolean Status of the command
 	 */
 	function next() {
@@ -322,7 +322,7 @@ class MPD {
 
 	/**
 	 * Plays previous song in the playlist.
-	 * 
+	 *
 	 * @return boolean Status of the command
 	 */
 	function prev() {
@@ -334,8 +334,8 @@ class MPD {
 	}
 
 	/**
-	 * Toggles pause/resumes playing, PAUSE is 0 or 1. 
-	 * 
+	 * Toggles pause/resumes playing, PAUSE is 0 or 1.
+	 *
 	 * @param integer $pause 0 = play and 1 = pause
 	 * @return boolean Status of the command
 	 */
@@ -358,7 +358,7 @@ class MPD {
 
 	/**
 	 * Stops playing.
-	 * 
+	 *
 	 * @return boolean Status of the command
 	 */
 	function stop() {
@@ -371,7 +371,7 @@ class MPD {
 
 	/**
 	 * Begins playing the playlist at song number SONGPOS.
-	 * 
+	 *
 	 * @param integer $song_pos The song position in playlist
 	 * @return boolean Status of the command
 	 */
@@ -389,8 +389,8 @@ class MPD {
 	}
 
 	/**
-	 * Begins playing the playlist at song SONGID. 
-	 * 
+	 * Begins playing the playlist at song SONGID.
+	 *
 	 * @param integer $id The song ID
 	 * @return boolean Status of the command
 	 */
@@ -409,7 +409,7 @@ class MPD {
 
 	/**
 	 * Seeks to the position TIME (in seconds) of entry SONGPOS in the playlist.
-	 * 
+	 *
 	 * @param integer $song_pos The song position in playlist
 	 * @param integer $time Position time in seconds
 	 * @return boolean Status of the command
@@ -429,7 +429,7 @@ class MPD {
 
 	/**
 	 * Seeks to the position TIME (in seconds) of song SONGID.
-	 * 
+	 *
 	 * @param integer $song_id ID of the song
 	 * @param integer $time Position time in seconds
 	 * @return boolean Status of the command
@@ -449,7 +449,7 @@ class MPD {
 
 	/**
 	 * Adds the file URI to the playlist (directories add recursively). URI can also be a single file.
-	 * 
+	 *
 	 * @param string $uri The file or dir to add
 	 * @return boolean Status of the command
 	 */
@@ -467,7 +467,7 @@ class MPD {
 	 * addid "foo.mp3"
 	 * Id: 999
 	 * OK
-	 * 
+	 *
 	 * @param string $uri The file or dir to add
 	 * @param integer $pos Position in the playlist
 	 * @return boolean Status of the command
@@ -486,8 +486,8 @@ class MPD {
 	}
 
 	/**
-	 * Clears the current playlist. 
-	 * 
+	 * Clears the current playlist.
+	 *
 	 * @return boolean Status of the command
 	 */
 	function playlist_clear() {
@@ -500,7 +500,7 @@ class MPD {
 
 	/**
 	 * Deletes the song SONGID from the playlist
-	 * 
+	 *
 	 * @param integer $id ID to remove
 	 * @return boolean Status of the command
 	 */
@@ -519,7 +519,7 @@ class MPD {
 
 	/**
 	 * Moves the song at FROM to TO in the playlist.
-	 * 
+	 *
 	 * @param integer $from From playlist position
 	 * @param integer $to To playlist position
 	 * @return boolean Status of the command
@@ -539,7 +539,7 @@ class MPD {
 
 	/**
 	 * Moves the range of songs at START:END to TO in the playlist.
-	 * 
+	 *
 	 * @param integer $start Start position
 	 * @param integer $end End position
 	 * @param integer $to New position
@@ -559,9 +559,9 @@ class MPD {
 	}
 
 	/**
-	 * Moves the song with FROM (songid) to TO (playlist index) in the playlist. 
-	 * If TO is negative, it is relative to the current song in the playlist (if there is one). 
-	 * 
+	 * Moves the song with FROM (songid) to TO (playlist index) in the playlist.
+	 * If TO is negative, it is relative to the current song in the playlist (if there is one).
+	 *
 	 * @param integer $from From song id
 	 * @param integer $to To playlist index
 	 * @return boolean Status of the command
@@ -581,7 +581,7 @@ class MPD {
 
 	/**
 	 * Shuffles the current playlist.
-	 * 
+	 *
 	 * @return boolean Status of the command
 	 */
 	function playlist_shuffle() {
@@ -594,7 +594,7 @@ class MPD {
 
 	/**
 	 * Lists the contents of the directory URI.
-	 * 
+	 *
 	 * @param string $uri The dir to display, default is root dir
 	 * @return boolean|array Returns false if command failed and an array containing the dirlist and other stuffs on success ;)
 	 */
@@ -608,7 +608,7 @@ class MPD {
 
 	/**
 	 * List all genres
-	 * 
+	 *
 	 * @return boolean|array Returns false if command failed and an array containing the result on success
 	 */
 	function list_genres() {
@@ -621,7 +621,7 @@ class MPD {
 
 	/**
 	 * List all artists
-	 * 
+	 *
 	 * @return boolean|array Returns false if command failed and an array containing the result on success
 	 */
 	function list_artists() {
@@ -634,7 +634,7 @@ class MPD {
 
 	/**
 	 * List all albums
-	 * 
+	 *
 	 * @return boolean|array Returns false if command failed and an array containing the result on success
 	 */
 	function list_albums() {
@@ -647,9 +647,9 @@ class MPD {
 
 	/**
 	 * Searches for any song that contains WHAT. The search WHAT is not case sensitive.
-	 * TYPE can be any tag supported by MPD, or one of the two special parameters — 
+	 * TYPE can be any tag supported by MPD, or one of the two special parameters —
 	 * file to search by full path (relative to database root), and any to match against all available tags
-	 * 
+	 *
 	 * @param string $type Type to search for
 	 * @param string $what case insensitive search string
 	 * @return boolean|array Returns false if command failed and an array containing the result on success
@@ -669,7 +669,7 @@ class MPD {
 
 	/**
 	 * Counts the number of songs and their total playtime in the db matching WHAT exactly.
-	 * 
+	 *
 	 * @param string $type Type to search for
 	 * @param string $what case sensitive search string
 	 * @return boolean|array Returns false if command failed and an array containing the result on success
@@ -689,7 +689,7 @@ class MPD {
 	/**
 	 * Updates the music database: find new files, remove deleted files, update modified files.
 	 * URI is a particular directory or song/file to update. If you do not specify it, everything is updated.
-	 * 
+	 *
 	 * @param string $uri (Optional) If URI is give database only updates files in that URI
 	 * @return boolean|array Returns false if command fails and returns updating_db: JOBID where JOBID is a positive number identifying the update job on success
 	 */
@@ -703,7 +703,7 @@ class MPD {
 
 	/**
 	 * Displays the song info of the current song (same song that is identified in status).
-	 * 
+	 *
 	 * @return boolean|array Returns false on failure and current song on success
 	 */
 	function current_song() {
@@ -716,7 +716,7 @@ class MPD {
 
 	/**
 	 * Displays a list of all songs in the playlist.
-	 * 
+	 *
 	 * @return array Returns an array containing the songs in the playlist
 	 */
 	function playlist() {
@@ -725,7 +725,7 @@ class MPD {
 
 	/**
 	 * Reports the current status of the player and the volume level.
-	 * 
+	 *
 	 * @return array Returns and array containing the status
 	 */
 	function server_status() {
@@ -734,7 +734,7 @@ class MPD {
 
 	/**
 	 * Displays statistics.
-	 * 
+	 *
 	 * @return array Returns an array containing the statistics
 	 */
 	function server_stats() {
@@ -743,8 +743,8 @@ class MPD {
 
 	/**
 	 * Prints a list of the playlist directory.
-	 * 
-	 * @return boolean|array Returns false on failure and playlists on success 
+	 *
+	 * @return boolean|array Returns false on failure and playlists on success
 	 */
 	function playlists() {
 		$list_pl_res = $this->cmd(CMD_LISTPLAYLISTS);
@@ -755,8 +755,8 @@ class MPD {
 	}
 
 	/**
-	 * Lists the songs with metadata in the playlist. Playlist plugins are supported. 
-	 * 
+	 * Lists the songs with metadata in the playlist. Playlist plugins are supported.
+	 *
 	 * @param string $playlist Name of the playlist to display
 	 * @return boolean|array Returns false on failure and playlist info on success
 	 */
@@ -770,12 +770,12 @@ class MPD {
 		if ($pl_res !== false) {
 			return $this->parse_playlist($pl_res);
 		}
-		return false;		
+		return false;
 	}
 
 	/**
-	 * Loads the playlist into the current queue. Playlist plugins are supported. 
-	 * 
+	 * Loads the playlist into the current queue. Playlist plugins are supported.
+	 *
 	 * @param string $playlist Playlist to load
 	 * @return boolean Returns false on failure and true on success
 	 */
@@ -789,13 +789,13 @@ class MPD {
 		if ($pl_res !== false) {
 			return true;
 		}
-		return false;		
+		return false;
 	}
 
 	/**
 	 * Adds URI to the playlist NAME.m3u.
 	 * NAME.m3u will be created if it does not exist.
-	 * 
+	 *
 	 * @param string $playlist Playlist to add to
 	 * @param string $uri URI to add
 	 * @return boolean Returns false on failure and true on success
@@ -810,12 +810,12 @@ class MPD {
 		if ($pl_res !== false) {
 			return true;
 		}
-		return false;	
+		return false;
 	}
 
 	/**
 	 * Clears the playlist NAME.m3u.
-	 * 
+	 *
 	 * @param string $playlist Playlist to clear
 	 * @return boolean Returns false on failure and true on success
 	 */
@@ -829,12 +829,12 @@ class MPD {
 		if ($pl_res !== false) {
 			return true;
 		}
-		return false;	
+		return false;
 	}
 
 	/**
 	 * Deletes SONGPOS from the playlist NAME.m3u
-	 * 
+	 *
 	 * @param string $playlist Playlist to remove from
 	 * @param integer $song_pos Position of the song to remove
 	 * @return boolean Returns false on failure and true on success
@@ -854,7 +854,7 @@ class MPD {
 
 	/**
 	 * Moves SONGID in the playlist NAME.m3u to the position SONGPOS.
-	 * 
+	 *
 	 * @param string $playlist The playlist to interact with
 	 * @param integer $song_id I of the song to move
 	 * @param integer $song_pos Position of the new position in the playlist
@@ -875,7 +875,7 @@ class MPD {
 
 	/**
 	 * Renames the playlist NAME.m3u to NEW_NAME.m3u.
-	 * 
+	 *
 	 * @param string $playlist Playlist to rename
 	 * @param strnig $new_name New name of playlist
 	 * @return boolean Returns false on failure and true on success
@@ -895,7 +895,7 @@ class MPD {
 
 	/**
 	 * Removes the playlist NAME.m3u from the playlist directory.
-	 * 
+	 *
 	 * @param string $playlist Playlist to remove
 	 * @return boolean Returns false on failure and true on success
 	 */
@@ -914,7 +914,7 @@ class MPD {
 
 	/**
 	 * Saves the current playlist to NAME.m3u in the playlist directory.
-	 * 
+	 *
 	 * @param string $playlist Name of the new playlist
 	 * @return boolean Returns false on failure and true on success
 	 */
@@ -933,7 +933,7 @@ class MPD {
 
 	/**
 	 * Closes the connection to MPD.
-	 * 
+	 *
 	 * @return boolean Returns false on failure and true on success
 	 */
 	function close() {
@@ -946,7 +946,7 @@ class MPD {
 
 	/**
 	 * Kills MPD.
-	 * 
+	 *
 	 * @return boolean Returns false on failure and true on success
 	 */
 	function kill() {
@@ -959,7 +959,7 @@ class MPD {
 
 	/**
 	 * Send a command to the MPD server.
-	 * 
+	 *
 	 * @param string $cmd The command to send
 	 * @param array $args An array with the command arguments
 	 * @return boolean|string Returns false if the command fails else returns the command result from the MPD server
@@ -1013,7 +1013,7 @@ class MPD {
 
 	/**
 	 * Updates the object variables.
-	 * 
+	 *
 	 * @return boolean Returns false if something went wrong else returns true
 	 */
 	function update() {
@@ -1062,7 +1062,7 @@ class MPD {
                 if (isset($srv_status['xfade'])) {
 		  $this->xfade = $srv_status['xfade'];
                 } else {
-		  $this->xfade = 0; 
+		  $this->xfade = 0;
                 }
 		$this->bitrate = $srv_status['bitrate'];
 		$this->audio = $srv_status['audio'];
@@ -1080,7 +1080,7 @@ class MPD {
 
 	/**
 	 * Get the an array of error messages that has been collected since the object was instantiated.
-	 * 
+	 *
 	 * @return array Returns an array with error messages
 	 */
 	function get_error() {
@@ -1089,7 +1089,7 @@ class MPD {
 
 	/**
 	 * Get the MPD connection status.
-	 * 
+	 *
 	 * @return boolean Returns true if connected to MPD server, else returns false
 	 */
 	function get_connection_status() {
@@ -1098,7 +1098,7 @@ class MPD {
 
 	/**
 	 * Get the MPD version.
-	 * 
+	 *
 	 * @return string Returns the version of the MPD
 	 */
 	function get_version() {
@@ -1107,7 +1107,7 @@ class MPD {
 
 	/**
 	 * Get the current debug log.
-	 * 
+	 *
 	 * @return array Returns the debug log
 	 */
 	function get_debug_log() {
@@ -1116,7 +1116,7 @@ class MPD {
 
 	/**
 	 * Get the MPD class version.
-	 * 
+	 *
 	 * @return string Returns the currenct version of this MPD class
 	 */
 	function get_php_mpd_version() {
